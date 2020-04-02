@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
              MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     printf("Process %d received token %d from process %d\n",
            world_rank, token, world_size - 1);
-
+  }
   MPI_Finalize();
   return 0;
 }
