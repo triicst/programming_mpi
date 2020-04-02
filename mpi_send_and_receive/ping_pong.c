@@ -1,8 +1,11 @@
 #include <mpi.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char** argv) {
   /* code */
+  const PING_PONG_LIMIT = 10;
+
   MPI_Init(NULL, NULL);
 
   int world_rank;
