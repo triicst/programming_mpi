@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 
   if (world_rank != 0){
     MPI_Recv(&token, 1, MPI_INT, world_rank - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    printf("Process %d receive token &d from process %d\n", world_rank, token, world_rank -1);
+    printf("Process %d receive token %d from process %d\n", world_rank, token, world_rank - 1);
   }
 
   MPI_Send(&token, 1, MPI_INT, (world_rank + 1) % world_size, 0, MPI_COMM_WORLD);
