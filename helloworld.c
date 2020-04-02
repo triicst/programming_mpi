@@ -15,5 +15,4 @@ int main(int argc, char *argv[]) {
   printf("Hello world from processor %s, rank %d out of %d processor"\n, processor_name, rank, size);
 
   MPI_Finalize();
-  return 0;
 }
