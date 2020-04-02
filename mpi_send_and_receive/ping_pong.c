@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv) {
   /* code */
-  const PING_PONG_LIMIT = 10;
+  const int PING_PONG_LIMIT = 10;
 
   MPI_Init(NULL, NULL);
 
