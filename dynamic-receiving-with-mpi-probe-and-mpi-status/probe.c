@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
     //     int tag,
     //     MPI_Comm comm,
     //     MPI_Status* status)
-    MPI_Proce(0,0, MPI_COMM_WORLD, &status);
+    MPI_Probe(0,0, MPI_COMM_WORLD, &status);
     //When probe returns, the status object has the size and other attributes of the imcomming message, Get the message size
     MPI_Get_count(&status, MPI_INT, &number_amount);
 
