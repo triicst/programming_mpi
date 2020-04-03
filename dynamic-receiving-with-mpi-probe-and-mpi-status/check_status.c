@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     MPI_Send(&numbers, number_amount, MPI_INT, 1, 0, MPI_COMM_WORLD );
     printf("0 sent %d to 1\n", number_amount);
   } else if (world_rank == 1){
-    MPI_status status;
+    MPI_Status status;
     //Receive at most MAX_NUMBERS from process zero
     MPI_Recv(&numbers, number_amount, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
     //After receiving the message, check the status to determine
