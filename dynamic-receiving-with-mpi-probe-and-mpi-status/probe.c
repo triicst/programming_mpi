@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
   int world_size;
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
   if (world_size != 2){
-    fprintf(stderr, "Must use tow  process%s\n", );
+    fprintf(stderr, "Must use tow  process%s\n");
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
 
