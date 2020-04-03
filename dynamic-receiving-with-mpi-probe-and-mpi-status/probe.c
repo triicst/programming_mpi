@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     int* number_buf = (int*)malloc(sizeof(int) * number_amount);
 
     //Now recevice the message with the allocate buffer
-    MPI_Recv(&numbers, number_amount, MPI_INT, 0,0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    MPI_Recv(number_buf, number_amount, MPI_INT, 0,0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     printf("1 dynamic recevice %d numbers from 0, \n", number_amount);
     free(number_buf);
   }
