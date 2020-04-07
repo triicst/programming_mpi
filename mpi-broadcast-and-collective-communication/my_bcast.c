@@ -38,5 +38,6 @@ int main(int argc, char** argv) {
     my_bcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD);
     printf("Process %d received data %d from root process\n", work_rank, data);
   }
+  MPI_Finalize();
   return 0;
 }
