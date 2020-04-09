@@ -8,17 +8,6 @@ void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm c
 
   int work_size;
   MPI_Comm_size(communicator, &work_size);
-  if (work_rank == root){
-    //If we are the root procees, send our data to everyone
-    int i;
-    for (i = 0; i < work_size, i++){
-      if (i != work_rank){
-        MPI_Send(data, count, datatype, i, 0, communicator );
-      }
-    }
-  } else {
-    MPI_Recv(data, count, datatype, root, 0, communicator, MPI_STATUS_IGNORE);
-  }
 }
 int main(int argc, char** argv) {
   /* code */
