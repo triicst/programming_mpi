@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <assert.h>
+
 float *create_rand_nums(int num_elements){
   float *rand_nums = (float *)malloc(sizeof(float) * num_elements);
   //assert function dung de chuan doan loi, void assert(int bieu-thuc),
@@ -36,10 +37,10 @@ int main(int argc, char **argv) {
   MPI_Init(NULL,NULL)
 
   int world_size;
-  MPI_Comm_size(MPI_COMM_WOLRD, &world_size);
+  MPI_Comm_size(MPI_COMM_WORLRD, &world_size);
 
   int world_rank;
-  MPI_Comm_rank(MPI_COMM_WOLRD, &world_rank);
+  MPI_Comm_rank(MPI_COMM_WORLRD, &world_rank);
   //Create a random array of elements on the root process . Its total
   //size will be the number of elements per process time the number
   // of process
@@ -81,7 +82,7 @@ int main(int argc, char **argv) {
   //   MPI_Datatype recv_datatype,
   //   int root,
   //   MPI_Comm communicator)
-  MPI_Gather(&sub_avg, 1, MPI_FLOAT, sub_avgs, 1, MPI_FLOAT, 0, MPI_COMM_WOLRD);
+  MPI_Gather(&sub_avg, 1, MPI_FLOAT, sub_avgs, 1, MPI_FLOAT, 0, MPI_COMM_WORLRD);
   // Now that we have all of the partial averages on the root, compute the
 // total average of all numbers. Since we are assuming each process computed
 // an average across an equal amount of elements, this computation will
@@ -98,7 +99,7 @@ int main(int argc, char **argv) {
     free(sub_avgs);
   }
   free(sub_rand_nums);
-  MPI_Barrier(MPI_COMM_WOLRD);
+  MPI_Barrier(MPI_COMM_WORLRD);
   MPI_Finalize();
   return 0;
 }
