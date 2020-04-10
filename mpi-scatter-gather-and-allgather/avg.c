@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     exit(1);
   }
     //convert from string to integer with use atoi function in c
-  int num_elements_per_proc = atoi(argv[1])
+  int num_elements_per_proc = atoi(argv[1]);
   // Seed the random number generator to get different results each time
   srand(time(NULL));
 
