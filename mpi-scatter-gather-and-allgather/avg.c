@@ -20,7 +20,7 @@ float compute_avg(float *array, int num_elements){
   float sum = 0.f;
   int i;
   for (i = 0;i < num_elements; i++){
-    sum[i] += array[i];
+    sum += array[i];
   }
   return sum / num_elements;
 }
@@ -34,7 +34,8 @@ int main(int argc, char **argv) {
   int num_elements_per_proc = atoi(argv[1])
   // Seed the random number generator to get different results each time
   srand(time(NULL));
-  MPI_Init(NULL,NULL)
+
+  MPI_Init(NULL,NULL);
 
   int world_size;
   MPI_Comm_size(MPI_COMM_WORLRD, &world_size);
