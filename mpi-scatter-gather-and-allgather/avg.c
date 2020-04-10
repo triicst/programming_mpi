@@ -27,11 +27,12 @@ int main(int argc, char **argv) {
   /* code */
   if (argc != 2){
     fprintf(stderr, "Usage: avg num_elements_per_proc\n");
-    //convert from string to integer with use atoi function in c
-    int num_elements_per_proc = atoi(argv[1])
-    // Seed the random number generator to get different results each time
-    srand(time(NULL));
+    exit(1);
   }
+    //convert from string to integer with use atoi function in c
+  int num_elements_per_proc = atoi(argv[1])
+  // Seed the random number generator to get different results each time
+  srand(time(NULL));
   MPI_Init(NULL,NULL)
 
   int world_size;
@@ -57,12 +58,12 @@ int main(int argc, char **argv) {
   //void *send_data,
   //int send_cout,
   //MPI_Datatype send_datatype,
-  //void *recv_data,
+  //void *recv_data, --->buffer per processor
   //int recv_count
   //MPI_Datatype recv_datatype,
   //int root,
   //MPI_Comm  communicator)
-  MPI_Scatter(rand_nums, num_elements_per_proc, MPI_FLOAT, sub_rand_nums, num_elements_per_proc, MPI_FLOAT,0,MPI_COMM_WOLRD);
+  MPI_Scatter(rand_nums, num_elements_per_proc, MPI_FLOAT, sub_rand_nums, num_elements_per_proc, MPI_FLOAT, 0, MPI_COMM_WOLRD);
   //Compute the average of your subset
   float sub_avg = compute_avg(sub_rand_nums, num_elements_per_proc);
   //Gather all partical averages down to the root process
